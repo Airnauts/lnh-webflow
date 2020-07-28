@@ -251,18 +251,12 @@ class ThreeBlockSwiper {
         });
     }
 
-    onSwiperLeft(callback) {
-        this.onSwiperLeft = callback;
+    onSwiperLeft() {
         console.log('left');
-
-        return this;
     }
 
-    onSwiperRight(callback) {
-        this.onSwiperRight = callback;
+    onSwiperRight() {
         console.log('right');
-
-        return this;
     }
 
     handleSwiperTouchMove(evt) {
