@@ -253,12 +253,12 @@ class ThreeBlockSwiper {
 
     onSwiperLeft() {
         console.log('left');
-        this.handleSlideChange('prev');
+        this.handleSlideChange('next');
     }
 
     onSwiperRight() {
         console.log('right');
-        this.handleSlideChange('next');
+        this.handleSlideChange('prev');
     }
 
     handleSwiperTouchMove(evt) {
