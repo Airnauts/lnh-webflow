@@ -297,9 +297,12 @@ class ThreeBlockSwiper {
         this.yDown = null;
     }
 
-    runSwiper() {
+    runTouchSwiper() {
         this.element.addEventListener('touchmove', function (evt) {
-            this.handleSwiperTouchMove(evt);
+            if (window.innerWidth <= 991) {
+                this.handleSwiperTouchMove(evt);
+                console.log('swipe evt fired');
+            }
         }.bind(this), false);
     }
 
@@ -326,3 +329,4 @@ class ThreeBlockSwiper {
 
 const swiper = new ThreeBlockSwiper();
 swiper.init();
+swiper.runTouchSwiper();
