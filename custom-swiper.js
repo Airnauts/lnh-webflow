@@ -324,4 +324,5 @@ class ThreeBlockSwiper {
 
 } // Init Components
 
-new ThreeBlockSwiper().init();
+const swiper = new ThreeBlockSwiper();
+swiper.init();
