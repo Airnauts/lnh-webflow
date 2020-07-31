@@ -252,12 +252,10 @@ class ThreeBlockSwiper {
     }
 
     onSwiperLeft() {
-        console.log('left');
         this.handleSlideChange('next');
     }
 
     onSwiperRight() {
-        console.log('right');
         this.handleSlideChange('prev');
     }
 
@@ -297,7 +295,6 @@ class ThreeBlockSwiper {
         this.element.addEventListener('touchmove', function (evt) {
             if (window.innerWidth <= 991) {
                 this.handleSwiperTouchMove(evt);
-                console.log('swipe evt fired');
             }
         }.bind(this), false);
     }
