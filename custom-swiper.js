@@ -12,6 +12,7 @@ class ThreeBlockSwiper {
             nextSlidesWrapper: rootEl.querySelector('[data-next-slides-wrapper]'),
             prevSlideTrigger: rootEl.querySelectorAll('[prev-slide-trigger]'),
             currentSlideTrigger: rootEl.querySelectorAll('[data-current-slide-trigger]'),
+            visibleLinkTrigger: rootEl.querySelectorAll('[data-portfolio-link]'),
             nextSlideTrigger: rootEl.querySelectorAll('[next-slide-trigger]'),
             prevImgWrapper: rootEl.querySelectorAll('[data-prev-img]'),
             currImgWrapper: rootEl.querySelectorAll('[data-current-img]'),
@@ -41,6 +42,8 @@ class ThreeBlockSwiper {
         this.xDown = null;
         this.yDown = null;
         this.element = document.querySelector(el);
+
+        console.log(this.$refs.visibleLinkTrigger);
 
         this.element.addEventListener('touchstart', function (evt) {
             this.xDown = evt.touches[0].clientX;
@@ -171,6 +174,7 @@ class ThreeBlockSwiper {
     }
 
     handleCurrentTriggerMouseOver() {
+        console.log('mouseover');
         this.setCursorText('OPEN');
         raf(() => {
             this.$refs.body.classList.add('-cursor-open');
@@ -179,6 +183,7 @@ class ThreeBlockSwiper {
     }
 
     handleCurrentTriggerMouseOut() {
+        console.log('mouseleave');
         this.$refs.body.classList.remove('-cursor-open');
         this.setCursorText('');
         this.scaleUpImg('current', this.$state.currentSlide, false);
@@ -226,8 +231,8 @@ class ThreeBlockSwiper {
         this.addListenerToLastEl(this.$refs.prevSlideTrigger, 'mouseout', this.handlePrevTriggerMouseOut.bind(this));
         this.addListenerToLastEl(this.$refs.nextSlideTrigger, 'mouseover', this.handleNextTriggerMouseOver.bind(this));
         this.addListenerToLastEl(this.$refs.nextSlideTrigger, 'mouseout', this.handleNextTriggerMouseOut.bind(this));
-        this.addListenerToLastEl(this.$refs.currentSlideTrigger, 'mouseover', this.handleCurrentTriggerMouseOver.bind(this));
-        this.addListenerToLastEl(this.$refs.currentSlideTrigger, 'mouseout', this.handleCurrentTriggerMouseOut.bind(this));
+        this.addListenerToLastEl(this.$refs.visibleLinkTrigger, 'mouseover', this.handleCurrentTriggerMouseOver.bind(this));
+        this.addListenerToLastEl(this.$refs.visibleLinkTrigger, 'mouseout', this.handleCurrentTriggerMouseOut.bind(this));
         window.addEventListener('click', this.handleCursorClick.bind(this));
     }
 
