@@ -43,8 +43,6 @@ class ThreeBlockSwiper {
         this.yDown = null;
         this.element = document.querySelector(el);
 
-        console.log(this.$refs.visibleLinkTrigger);
-
         this.element.addEventListener('touchstart', function (evt) {
             this.xDown = evt.touches[0].clientX;
             this.yDown = evt.touches[0].clientY;
@@ -174,7 +172,6 @@ class ThreeBlockSwiper {
     }
 
     handleCurrentTriggerMouseOver() {
-        console.log('mouseover');
         this.setCursorText('OPEN');
         raf(() => {
             this.$refs.body.classList.add('-cursor-open');
@@ -183,7 +180,6 @@ class ThreeBlockSwiper {
     }
 
     handleCurrentTriggerMouseOut() {
-        console.log('mouseleave');
         this.$refs.body.classList.remove('-cursor-open');
         this.setCursorText('');
         this.scaleUpImg('current', this.$state.currentSlide, false);
