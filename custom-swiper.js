@@ -231,8 +231,8 @@ class ThreeBlockSwiper {
         this.addListenerToLastEl(this.$refs.prevSlideTrigger, 'mouseout', this.handlePrevTriggerMouseOut.bind(this));
         this.addListenerToLastEl(this.$refs.nextSlideTrigger, 'mouseover', this.handleNextTriggerMouseOver.bind(this));
         this.addListenerToLastEl(this.$refs.nextSlideTrigger, 'mouseout', this.handleNextTriggerMouseOut.bind(this));
-        this.addListenerToLastEl(this.$refs.visibleLinkTrigger, 'mouseover', this.handleCurrentTriggerMouseOver.bind(this));
-        this.addListenerToLastEl(this.$refs.visibleLinkTrigger, 'mouseout', this.handleCurrentTriggerMouseOut.bind(this));
+        this.addListenerToAll(this.$refs.visibleLinkTrigger, 'mouseover', this.handleCurrentTriggerMouseOver.bind(this));
+        this.addListenerToAll(this.$refs.visibleLinkTrigger, 'mouseout', this.handleCurrentTriggerMouseOut.bind(this));
         window.addEventListener('click', this.handleCursorClick.bind(this));
     }
 
